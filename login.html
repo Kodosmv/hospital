@@ -21,7 +21,7 @@
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Tornar a l'Inici</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-arrow-left"></i> Tornar a l'Inici</a></li>
                 </ul>
             </div>
         </div>
@@ -29,26 +29,53 @@
 
     <main class="container py-5 view-section">
         <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-5">
-                <div class="card shadow border-0">
-                    <div class="card-body p-5">
-                        <h3 class="text-center text-hospital-primary mb-4">Accés Pacients</h3>
-                        <form id="loginForm">
-                            <div class="mb-3">
-                                <label class="form-label">Número SIP</label>
-                                <input type="text" class="form-control" id="loginSip" required placeholder="Ex: 12345678">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0 overflow-hidden">
+                    <div class="row g-0">
+                        <div class="col-md-6 p-5 bg-white">
+                            <h4 class="text-hospital-primary mb-4"><i class="fa-solid fa-notes-medical me-2"></i>Accés amb SIP</h4>
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-bold">Número SIP</label>
+                                    <input type="text" class="form-control bg-light" id="loginSip" required placeholder="Ex: 12345678">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label text-muted small fw-bold">DNI / NIE</label>
+                                    <input type="text" class="form-control bg-light" id="loginDni" required placeholder="Ex: 12345678A">
+                                </div>
+                                <button type="submit" class="btn btn-hospital-primary w-100 py-2">Entrar <i class="fa-solid fa-sign-in-alt ms-1"></i></button>
+                            </form>
+                        </div>
+                        
+                        <div class="col-md-6 p-5 bg-light border-start">
+                            <h4 class="text-hospital-primary mb-4"><i class="fa-solid fa-id-card-clip me-2"></i>Accés Electrònic</h4>
+                            <p class="text-muted small mb-4">Accedix de forma segura mitjançant els sistemes d'identificació de les Administracions Públiques.</p>
+                            
+                            <div class="d-grid gap-3">
+                                <button type="button" class="btn btn-outline-danger py-2 d-flex align-items-center justify-content-center" onclick="simularLoginEspecial('Cl@ve')">
+                                    <img src="https://administracionelectronica.gob.es/pae_Home/dms/pae_Home/documentos/Estrategia/pae_Identidad_Electronica/Logo-Clave.png" alt="Cl@ve" style="height: 20px;" class="me-2">
+                                    Identificació amb Cl@ve
+                                </button>
+                                
+                                <button type="button" class="btn btn-outline-primary py-2 d-flex align-items-center justify-content-center" onclick="simularLoginEspecial('DNIe')">
+                                    <i class="fa-solid fa-certificate fs-5 me-2"></i>
+                                    Certificat Digital o DNIe
+                                </button>
                             </div>
-                            <div class="mb-4">
-                                <label class="form-label">DNI / NIE</label>
-                                <input type="text" class="form-control" id="loginDni" required placeholder="Ex: 12345678A">
+                            
+                            <div class="mt-4 text-center">
+                                <a href="#" class="text-decoration-none small text-muted"><i class="fa-solid fa-circle-question"></i> Problemes per accedir?</a>
                             </div>
-                            <button type="submit" class="btn btn-hospital-primary w-100">Entrar <i class="fa-solid fa-sign-in-alt"></i></button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <a href="admin.html" class="btn btn-warning shadow-lg position-fixed bottom-0 end-0 m-4 fw-bold" style="z-index: 1050; border-radius: 50px;">
+        <i class="fa-solid fa-user-shield me-2"></i> Accés UDCA (Demo)
+    </a>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="app.js"></script>

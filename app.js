@@ -154,3 +154,29 @@ function updateReq(id, status) {
         renderAdminTable();
     }
 }
+// --- FUNCIÓN PARA SIMULAR LOGIN CON CERTIFICADO/CL@VE (Añadir a app.js) ---
+function simularLoginEspecial(metodo) {
+    Swal.fire({
+        title: `Connectant amb ${metodo}...`,
+        html: 'Validant credencials segures. Per favor, espere.',
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+            Swal.showLoading()
+        }
+    }).then(() => {
+        // Logueamos con un SIP genérico de Demo
+        const sipDemo = "99999999"; 
+        sessionStorage.setItem('currentUserSIP', sipDemo);
+        
+        Swal.fire({
+            icon: 'success',
+            title: 'Identitat Verificada',
+            text: 'Accedint al portal...',
+            showConfirmButton: false,
+            timer: 1500
+        }).then(() => {
+            window.location.href = 'pacient.html';
+        });
+    });
+}

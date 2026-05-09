@@ -90,3 +90,15 @@ main {
 .card:hover > .card-body > .fa-3x {
     transform: scale(1.1);
 }
+.btn-warning.position-fixed:hover {
+    transform: scale(1.05);
+}
+/* Utilidades para los menús laterales */
+.w-20px {
+    width: 24px;
+    text-align: center;
+}
+.list-group-item:hover {
+    background-color: var(--bg-light-gray);
+    color: var(--hospital-primary) !important;
+}
