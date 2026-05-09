@@ -105,7 +105,7 @@ function renderPatientTable(activeSip) {
 
     userRequests.forEach(req => {
         let actionHtml = req.status === 'Acceptada' 
-            ? `<button class="btn btn-success btn-sm" onclick="downloadDocument(${req.id})">Descarregar</button>` 
+            ? `<button class="btn btn-success btn-sm" onclick="downloadDocument(${req.id})"><i class="fa-solid fa-file-pdf"></i> Descarregar</button>` 
             : `<span class="badge bg-secondary">${req.status}</span>`;
         
         tbody.innerHTML += `<tr><td>${req.date}</td><td>${req.type}</td><td>${req.status}</td><td>${actionHtml}</td></tr>`;
@@ -154,7 +154,8 @@ function updateReq(id, status) {
         renderAdminTable();
     }
 }
-// --- FUNCIÓN PARA SIMULAR LOGIN CON CERTIFICADO/CL@VE (Añadir a app.js) ---
+
+// --- FUNCIÓN PARA SIMULAR LOGIN CON CERTIFICADO/CL@VE ---
 function simularLoginEspecial(metodo) {
     Swal.fire({
         title: `Connectant amb ${metodo}...`,
@@ -179,4 +180,30 @@ function simularLoginEspecial(metodo) {
             window.location.href = 'pacient.html';
         });
     });
+}
+
+// --- LÓGICA DE LOS DESLIZADORES DINÁMICOS (Encuesta) ---
+const descripcionesEscala = {
+    1: "1 - Molt roí",
+    2: "2 - Millorable",
+    3: "3 - Acceptable",
+    4: "4 - Bé",
+    5: "5 - Excel·lent"
+};
+
+function updateSliderLabel(inputId, labelId) {
+    const value = parseInt(document.getElementById(inputId).value);
+    const label = document.getElementById(labelId);
+    
+    // Cambiar el texto
+    label.textContent = descripcionesEscala[value];
+    
+    // Cambiar el color de la etiqueta visualmente según la nota
+    if (value >= 4) {
+        label.className = "badge bg-success fs-6 shadow-sm"; // Verde
+    } else if (value === 3) {
+        label.className = "badge bg-warning text-dark fs-6 shadow-sm"; // Naranja/Amarillo
+    } else {
+        label.className = "badge bg-danger fs-6 shadow-sm"; // Rojo
+    }
 }
