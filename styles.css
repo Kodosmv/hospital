@@ -1,0 +1,92 @@
+/* =======================================================
+   Variables de Color Institucionales (DOCUSALUT)
+======================================================= */
+:root {
+    --hospital-primary: #004d80; /* Azul oscuro corporativo */
+    --hospital-secondary: #0099cc; /* Azul claro para detalles */
+    --bg-light-gray: #f8f9fa; /* Fondo suave para reducir fatiga visual */
+}
+
+/* =======================================================
+   Estilos Base
+======================================================= */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light-gray);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1; /* Para que el pie de página (si añades) quede abajo */
+}
+
+/* =======================================================
+   Clases Utilitarias Personalizadas (Sobrescriben Bootstrap)
+======================================================= */
+.bg-hospital-primary { 
+    background-color: var(--hospital-primary) !important; 
+}
+.bg-hospital-secondary { 
+    background-color: var(--hospital-secondary) !important; 
+}
+
+.text-hospital-primary { 
+    color: var(--hospital-primary) !important; 
+}
+.text-hospital-secondary { 
+    color: var(--hospital-secondary) !important; 
+}
+
+/* =======================================================
+   Botones Personalizados
+======================================================= */
+.btn-hospital-primary {
+    background-color: var(--hospital-primary);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-hospital-primary:hover {
+    background-color: #003355; /* Un tono más oscuro al pasar el ratón */
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* =======================================================
+   Animación de Entrada de Páginas
+======================================================= */
+/* Aplicamos un pequeño fade-in cada vez que se carga un HTML nuevo */
+.view-section {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* =======================================================
+   Tarjetas (Cards)
+======================================================= */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto hover suave solo para las tarjetas informativas del index */
+.card-body > .fa-3x {
+    transition: transform 0.3s ease;
+}
+
+.card:hover > .card-body > .fa-3x {
+    transform: scale(1.1);
+}
